@@ -1,13 +1,24 @@
 import React from "react";
 import { StyleSheet, View, Text, StatusBar, Image } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+import colors from "../config/colors";
 
 function ViewImageScreen() {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <View>
-        <View style={styles.closeicon}></View>
-        <View style={styles.deleteicon}></View>
+      <View style={styles.iconContainer}>
+        <View style={styles.closeicon}>
+          <MaterialCommunityIcons name="close" size={40} color={colors.white} />
+        </View>
+        <View style={styles.deleteicon}>
+          <MaterialCommunityIcons
+            name="trash-can-outline"
+            size={40}
+            color={colors.white}
+          />
+        </View>
       </View>
       <Image
         source={require("../assets/chair.jpg")}
@@ -21,29 +32,34 @@ function ViewImageScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: colors.black,
   },
-  Img: {
-    //flex: 15,
+  iconContainer: {
     width: "100%",
-    height: "100%",
-    marginTop: 10,
+    height: "5%",
+    marginBottom: 5,
   },
   closeicon: {
+    alignItems: "center",
+    justifyContent: "center",
     width: 50,
     height: 50,
+    top: "20%",
+    left: "5%",
     position: "absolute",
-    top: 20,
-    left: 20,
-    backgroundColor: "#fc5c65",
   },
   deleteicon: {
+    alignItems: "center",
+    justifyContent: "center",
     width: 50,
     height: 50,
+    top: "20%",
+    right: "5%",
     position: "absolute",
-    top: 20,
-    right: 20,
-    backgroundColor: "#4ECDC4",
+  },
+  Img: {
+    width: "100%",
+    height: "100%",
   },
 });
 export default ViewImageScreen;

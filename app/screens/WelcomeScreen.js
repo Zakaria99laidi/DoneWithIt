@@ -1,45 +1,45 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet, Image } from "react-native";
+import { View, ImageBackground, StyleSheet, Image } from "react-native";
+
+import Button from "../components/AppButton";
+import Text from "../components/AppText";
 
 const WelcomeScreen = () => (
   <ImageBackground
     source={require("../assets/background.jpg")}
-    style={styles.Imgbackground}
+    style={styles.ImgBackground}
     resizeMode="cover"
+    blurRadius={4}
   >
-    <View style={styles.logoinfo}>
+    <View style={styles.logoContainer}>
       <Image source={require("../assets/logo-red.png")} style={styles.logo} />
-      <Text style={styles.text}>Sell What You Don't Need</Text>
+      <Text style={styles.textLine}>Sell What You Don't Need</Text>
     </View>
-    <View style={styles.loginbutton}></View>
-    <View style={styles.registerbutton}></View>
+    <Button title="login" />
+    <Button title="register" color="secondary" />
   </ImageBackground>
 );
 
 const styles = StyleSheet.create({
-  Imgbackground: {
+  ImgBackground: {
     flex: 1,
-  },
-  logoinfo: {
-    flex: 8,
+    justifyContent: "flex-end",
     alignItems: "center",
+    padding: 10,
+    paddingBottom: 20,
+  },
+  logoContainer: {
+    position: "absolute",
+    alignItems: "center",
+    top: 70,
   },
   logo: {
     width: 100,
     height: 100,
-    marginTop: 80,
   },
-  text: {
-    marginVertical: 10,
-    fontSize: 16,
-  },
-  loginbutton: {
-    flex: 1,
-    backgroundColor: "#fc5c65",
-  },
-  registerbutton: {
-    flex: 1,
-    backgroundColor: "#4ECDC4",
+  textLine: {
+    marginVertical: 15,
+    fontWeight: "bold",
   },
 });
 
