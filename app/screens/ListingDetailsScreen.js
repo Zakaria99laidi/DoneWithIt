@@ -18,9 +18,9 @@ function ListingDetailsScreen({
         <Text style={styles.title}> {title} </Text>
         <Text style={styles.subTitle}> {subTitle} </Text>
       </View>
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      <ListItem style={{ marginVertical: 5 }} />
+      <ListItem style={{ marginVertical: 5 }} />
+      <ListItem style={{ marginVertical: 5 }} />
     </Screen>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import Card from "../components/Card";
 
 import Screen from "../components/Screen";
@@ -46,8 +46,9 @@ const listings = [
 
 function ListingsScreen() {
   return (
-    <Screen style={styles.container}>
+    <Screen style={styles.screen}>
       <FlatList
+        style={{ paddingVertical: 10 }}
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
@@ -55,6 +56,7 @@ function ListingsScreen() {
             image={item.image}
             title={item.title}
             subTitle={item.subTitle}
+            style={{ marginVertical: 7 }}
           />
         )}
       />
@@ -63,10 +65,10 @@ function ListingsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 15,
-    paddingTop: 40,
+  screen: {
     backgroundColor: colors.light,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
   },
 });
 

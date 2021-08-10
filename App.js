@@ -20,28 +20,13 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import Icon from "./app/components/Icon";
+import AccountScreen from "./app/screens/AccountScreen";
+import ListItemDeleteAction from "./app/components/ListItemDeleteAction";
 
 export default function App() {
-  return <ListingsScreen />;
+  return <AccountScreen />;
   // return (
   //   <View style={styles.container}>
-  //     {/* <MessagesScreen /> */}
-  //     {/* <Card
-  //       image={require("./app/assets/camera.jpg")}
-  //       title="Nice Camera!"
-  //       subTitle="80$"
-  //     />
-  //     <Card
-  //       image={require("./app/assets/couch.jpg")}
-  //       title="Nice couch!"
-  //       subTitle="100$"
-  //     />
-  //     <Card
-  //       image={require("./app/assets/couch.jpg")}
-  //       title="Nice Chair!"
-  //       subTitle="80$"
-  //     /> */}
-  //     {/* <ListingDetailsScreen /> */}
   //   </View>
   // );
 }
