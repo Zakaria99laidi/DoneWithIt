@@ -1,33 +1,41 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
-import colors from "../config/colors";
+import { Image, StyleSheet, View, TouchableHighlight } from "react-native";
+import { Swipeable } from "react-native-gesture-handler";
 
+import colors from "../config/colors";
 import Text from "./AppText";
 
 function ListItem({
   image = require("../assets/zaki2.jpg"),
-  name = "Laidi Zakaria",
-  listing = "5 Listings",
+  title = "Laidi Zakaria",
+  description = "5 Listings",
+  style,
+  onPress,
+  renderRightActions,
 }) {
   return (
-    <View style={styles.container}>
-      <Image source={image} style={styles.Img} />
-      <View style={{ justifyContent: "center" }}>
-        <Text style={styles.name}> {name} </Text>
-        <Text style={styles.listing}> {listing} </Text>
-      </View>
-    </View>
+    <Swipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
+        <View style={[styles.container, style]}>
+          <Image source={image} style={styles.Img} />
+          <View style={styles.textContainer}>
+            <Text style={styles.title}> {title} </Text>
+            <Text style={styles.description}> {description} </Text>
+          </View>
+        </View>
+      </TouchableHighlight>
+    </Swipeable>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "#fff",
+    //backgroundColor: colors.grey,
     paddingHorizontal: 20,
     paddingVertical: 10,
     alignItems: "center",
-    marginVertical: 5,
+    marginVertical: 4,
   },
   Img: {
     width: 70,
@@ -35,13 +43,17 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     marginHorizontal: 5,
   },
-  name: {
+  title: {
     fontWeight: "500",
   },
-  listing: {
+  description: {
     color: colors.medium,
     fontSize: 14,
     marginLeft: 2,
+  },
+  textContainer: {
+    justifyContent: "center",
+    width: "80%",
   },
 });
 

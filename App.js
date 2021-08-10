@@ -1,6 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Platform,
+  TouchableHighlight,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Constants from "expo-constants";
 
 import AppButton from "./app/components/AppButton";
 import AppText from "./app/components/AppText";
@@ -9,12 +17,16 @@ import colors from "./app/config/colors";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
+//import MessagesScreen from "./app/screens/MessagesScreen";
+//console.log(Constants.statusBarHeight);
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <MessagesScreen />;
   // return (
-  //   <View style={styles.testCard}>
-  //     <Card
+  //   <View style={styles.container}>
+  //     {/* <MessagesScreen /> */}
+  //     {/* <Card
   //       image={require("./app/assets/camera.jpg")}
   //       title="Nice Camera!"
   //       subTitle="80$"
@@ -28,7 +40,7 @@ export default function App() {
   //       image={require("./app/assets/couch.jpg")}
   //       title="Nice Chair!"
   //       subTitle="80$"
-  //     />
+  //     /> */}
   //     {/* <ListingDetailsScreen /> */}
   //   </View>
   // );
@@ -37,7 +49,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "dodgerblue",
+    backgroundColor: colors.primary,
+    paddingTop: Constants.statusBarHeight,
     alignItems: "center",
     justifyContent: "center",
     padding: 10,
