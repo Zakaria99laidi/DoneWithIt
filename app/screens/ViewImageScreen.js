@@ -9,10 +9,10 @@ function ViewImageScreen() {
     <View style={styles.container}>
       <StatusBar />
       <View style={styles.iconContainer}>
-        <View style={styles.closeicon}>
+        <View style={styles.closeIcon}>
           <MaterialCommunityIcons name="close" size={40} color={colors.white} />
         </View>
-        <View style={styles.deleteicon}>
+        <View style={styles.deleteIcon}>
           <MaterialCommunityIcons
             name="trash-can-outline"
             size={40}
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     height: "5%",
     marginBottom: 5,
   },
-  closeicon: {
+  closeIcon: {
     alignItems: "center",
     justifyContent: "center",
     width: 50,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     left: "5%",
     position: "absolute",
   },
-  deleteicon: {
+  deleteIcon: {
     alignItems: "center",
     justifyContent: "center",
     width: 50,
