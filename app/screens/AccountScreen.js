@@ -1,9 +1,8 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
-import Icon from "../components/Icon";
 
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
+import Icon from "../components/Icon";
+import { ListItem, ListItemSeparator } from "../components/lists";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
@@ -31,7 +30,7 @@ function AccountScreen() {
     <Screen style={styles.screen}>
       <ListItem
         style={styles.container}
-        image={require("../assets/mosh.jpg")}
+        image={require("../assets/zaki2.jpg")}
         title="Laidi Zakaria"
         description="gz_laidi@esi.dz"
       />

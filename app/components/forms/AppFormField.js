@@ -5,7 +5,7 @@ import ErrorMessage from "./AppErrorMessage";
 import TextInput from "../AppTextInput";
 
 function AppFormField({ name, ...otherProps }) {
-  const { handleBlur, handleChange, errors, touched } = useFormikContext();
+  const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
   return (
     <>
       <TextInput

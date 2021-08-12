@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import ListItem from "../components/ListItem";
+import {
+  ListItem,
+  ListItemSeparator,
+  ListItemDeleteAction,
+} from "../components/lists";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import AppButton from "../components/AppButton";
 
 const initialMessages = [
   {

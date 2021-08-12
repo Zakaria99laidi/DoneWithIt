@@ -21,12 +21,13 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import Icon from "./app/components/Icon";
 import AccountScreen from "./app/screens/AccountScreen";
-import ListItemDeleteAction from "./app/components/ListItemDeleteAction";
+import ListItemDeleteAction from "./app/components/lists/ListItemDeleteAction";
 import AppTextInput from "./app/components/AppTextInput";
 import Screen from "./app/components/Screen";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 // const items = [
 //   { id: 1, label: "Fournitue" },

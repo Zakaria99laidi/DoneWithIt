@@ -11,15 +11,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../config/defaultStyles";
 import Text from "./AppText";
-//import Button from "./AppButton";
 import Screen from "./Screen";
 import AppPickerItem from "./AppPickerItem";
 
 function AppPicker({
-  icon = "apps",
+  icon,
   items,
   onSelectedItem,
   placeholder,
+  placeholderColor,
   selectedItem,
   style,
 }) {
@@ -36,7 +36,16 @@ function AppPicker({
               style={styles.icon}
             />
           )}
-          <Text style={styles.placeholder}>
+          <Text
+            style={[
+              styles.placeholder,
+              {
+                color: selectedItem
+                  ? defaultStyles.colors.dark
+                  : defaultStyles.colors[placeholderColor],
+              },
+            ]}
+          >
             {selectedItem ? selectedItem.label : placeholder}
           </Text>
           <MaterialCommunityIcons

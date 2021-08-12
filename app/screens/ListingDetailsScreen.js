@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 
 import Text from "../components/AppText";
-import ListItem from "../components/ListItem";
+import { ListItem } from "../components/lists";
 import colors from "../config/colors";
 import Screen from "../components/Screen";
 
