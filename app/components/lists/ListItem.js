@@ -1,10 +1,10 @@
 import React from "react";
 import { Image, StyleSheet, View, TouchableHighlight } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";
-import Text from "../AppText";
-import Icon from "../Icon";
+import Text from "../Text";
 
 function ListItem({
   image,
@@ -14,6 +14,7 @@ function ListItem({
   style,
   onPress,
   renderRightActions,
+  showChevrons = false,
 }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
@@ -22,11 +23,24 @@ function ListItem({
           {iconComponent}
           {image && <Image source={image} style={styles.Img} />}
           <View style={styles.detailsContainer}>
-            {title && <Text style={styles.title}>{title}</Text>}
+            {title && (
+              <Text style={styles.title} numberOfLines={1}>
+                {title}
+              </Text>
+            )}
             {description && (
-              <Text style={styles.description}>{description}</Text>
+              <Text style={styles.description} numberOfLines={2}>
+                {description}
+              </Text>
             )}
           </View>
+          {showChevrons && (
+            <MaterialCommunityIcons
+              name="chevron-right"
+              size={20}
+              color={colors.medium}
+            />
+          )}
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -37,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
     flexDirection: "row",
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     paddingVertical: 10,
     alignItems: "center",
   },
@@ -52,12 +66,11 @@ const styles = StyleSheet.create({
   description: {
     color: colors.medium,
     fontSize: 14,
-    marginLeft: 2,
   },
   detailsContainer: {
     justifyContent: "center",
     marginLeft: 10,
-    width: "80%",
+    flex: 1,
   },
 });
 

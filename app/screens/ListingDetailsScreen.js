@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 
-import Text from "../components/AppText";
+import Text from "../components/Text";
 import { ListItem } from "../components/lists";
 import colors from "../config/colors";
 import Screen from "../components/Screen";
@@ -18,9 +18,27 @@ function ListingDetailsScreen({
         <Text style={styles.title}> {title} </Text>
         <Text style={styles.subTitle}> {subTitle} </Text>
       </View>
-      <ListItem style={{ marginVertical: 5 }} />
-      <ListItem style={{ marginVertical: 5 }} />
-      <ListItem style={{ marginVertical: 5 }} />
+      <ListItem
+        image={require("../assets/zaki2.jpg")}
+        title="Laidi Zakaria"
+        description="5 Listings"
+        showChevrons={false}
+        style={{ marginVertical: 5 }}
+      />
+      <ListItem
+        image={require("../assets/zaki2.jpg")}
+        title="Laidi Zakaria"
+        description="5 Listings"
+        showChevrons={false}
+        style={{ marginVertical: 5 }}
+      />
+      <ListItem
+        image={require("../assets/zaki2.jpg")}
+        title="Laidi Zakaria"
+        description="5 Listings"
+        showChevrons={false}
+        style={{ marginVertical: 5 }}
+      />
     </Screen>
   );
 }

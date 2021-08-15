@@ -1,19 +1,30 @@
 import { useFormikContext } from "formik";
 import React from "react";
 
-import Picker from "../AppPicker";
-import ErrorMessage from "./AppErrorMessage";
+import Picker from "../Picker";
+import ErrorMessage from "./ErrorMessage";
 
-function FormPicker({ items, placeholder, name }) {
+function FormPicker({
+  items,
+  PickerItemComponent,
+  placeholder,
+  placeholderColor = "medium",
+  name,
+  numColumns,
+  ...otherProps
+}) {
   const { errors, values, touched, setFieldValue } = useFormikContext();
   return (
     <>
       <Picker
         items={items}
+        PickerItemComponent={PickerItemComponent}
         placeholder={placeholder}
-        placeholderColor="medium"
+        placeholderColor={placeholderColor}
         selectedItem={values[name]}
+        numColumns={numColumns}
         onSelectedItem={(item) => setFieldValue(name, item)}
+        {...otherProps}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>

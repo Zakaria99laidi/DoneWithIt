@@ -10,24 +10,27 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../config/defaultStyles";
-import Text from "./AppText";
+import Text from "./Text";
 import Screen from "./Screen";
-import AppPickerItem from "./AppPickerItem";
+import PickerItem from "./PickerItem";
 
-function AppPicker({
+function Picker({
   icon,
   items,
   onSelectedItem,
+  PickerItemComponent = PickerItem,
   placeholder,
   placeholderColor,
+  numColumns = 1,
   selectedItem,
   style,
+  width,
 }) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={[styles.container, style]}>
+        <View style={[styles.container, style, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -66,14 +69,15 @@ function AppPicker({
             data={items}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
-              <AppPickerItem
-                label={item.label}
+              <PickerItemComponent
+                item={item}
                 onPress={() => {
                   setModalVisible(false);
                   onSelectedItem(item);
                 }}
               />
             )}
+            numColumns={numColumns}
           />
         </Screen>
       </Modal>
@@ -100,4 +104,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppPicker;
+export default Picker;

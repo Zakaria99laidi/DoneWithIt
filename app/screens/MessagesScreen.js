@@ -107,6 +107,7 @@ function MessagesScreen() {
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
+            showChevrons={true}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
@@ -120,7 +121,7 @@ function MessagesScreen() {
 const styles = StyleSheet.create({
   container: {
     //paddingHorizontal: 10,
-    backgroundColor: colors.grey,
+    //backgroundColor: colors.medium,
   },
 });
 

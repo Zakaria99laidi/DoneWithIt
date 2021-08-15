@@ -10,8 +10,8 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
 
-import AppButton from "./app/components/AppButton";
-import AppText from "./app/components/AppText";
+import AppButton from "./app/components/Button";
+import AppText from "./app/components/Text";
 import Card from "./app/components/Card";
 import colors from "./app/config/colors";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -22,32 +22,63 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import Icon from "./app/components/Icon";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListItemDeleteAction from "./app/components/lists/ListItemDeleteAction";
-import AppTextInput from "./app/components/AppTextInput";
+import AppTextInput from "./app/components/TextInput";
 import Screen from "./app/components/Screen";
-import AppPicker from "./app/components/AppPicker";
+import Picker from "./app/components/Picker";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
-
-// const items = [
-//   { id: 1, label: "Fournitue" },
-//   { id: 2, label: "Clothing" },
-//   { id: 3, label: "Cameras" },
-// ];
+import { ListItem } from "./app/components/lists";
+import CategoryPickerItem from "./app/components/CategoryPickerItem";
 
 export default function App() {
-  return <RegisterScreen />;
+  return <AccountScreen />;
 
   // const [category, setCategory] = useState();
   // return (
   //   <Screen style={styles.container}>
-  //     <AppPicker
-  //       selectedItem={category}
-  //       onSelectedItem={(item) => setCategory(item)}
-  //       placeholder="Category"
-  //       items={items}
-  //       handleSelection={handleSelection}
-  //     />
+  //     <View style={{ flexDirection: "row" }}>
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //     </View>
+  //     <View style={{ flexDirection: "row" }}>
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //     </View>
+  //     <View style={{ flexDirection: "row" }}>
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //       <CategoryPickerItem
+  //         label="Furniture"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //       <CategoryPickerItem
+  //         label="Movies & Music"
+  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
+  //       />
+  //     </View>
   //   </Screen>
   // );
 }
@@ -55,7 +86,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: colors.light,
+    backgroundColor: colors.light,
     //alignItems: "center",
     //justifyContent: "center",
     padding: 10,

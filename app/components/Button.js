@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
 import colors from "../config/colors";
-import Text from "./AppText";
+import Text from "./Text";
 
 function AppButton({
   title,

@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 
 import colors from "../config/colors";
-import Text from "./AppText";
+import Text from "./Text";
 
 function Card({
   image = require("../assets/jacket.jpg"),
@@ -15,8 +15,13 @@ function Card({
     <View style={[styles.card, style]}>
       <Image source={image} style={[styles.Img, styleImg]} />
       <View style={styles.infoCard}>
-        <Text style={styles.title}> {title} </Text>
-        <Text style={styles.subTitle}> {subTitle} </Text>
+        <Text style={styles.title} numberOfLines={2}>
+          {" "}
+          {title}{" "}
+        </Text>
+        <Text style={styles.subTitle} numberOfLines={1}>
+          {subTitle}
+        </Text>
       </View>
     </View>
   );
