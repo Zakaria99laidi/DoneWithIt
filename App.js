@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,7 +6,9 @@ import {
   FlatList,
   Platform,
   TouchableHighlight,
+  Image,
 } from "react-native";
+import * as ImagePicker from "expo-image-picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
 
@@ -30,63 +32,17 @@ import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import { ListItem } from "./app/components/lists";
 import CategoryPickerItem from "./app/components/CategoryPickerItem";
+import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  return <AccountScreen />;
-
-  // const [category, setCategory] = useState();
-  // return (
-  //   <Screen style={styles.container}>
-  //     <View style={{ flexDirection: "row" }}>
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //     </View>
-  //     <View style={{ flexDirection: "row" }}>
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //     </View>
-  //     <View style={{ flexDirection: "row" }}>
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //       <CategoryPickerItem
-  //         label="Furniture"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //       <CategoryPickerItem
-  //         label="Movies & Music"
-  //         icon={{ name: "floor-lamp", backgroundColor: "#fc5c65" }}
-  //       />
-  //     </View>
-  //   </Screen>
-  // );
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.light,
+    backgroundColor: colors.white,
     //alignItems: "center",
     //justifyContent: "center",
     padding: 10,

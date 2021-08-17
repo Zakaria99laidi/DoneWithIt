@@ -17,7 +17,9 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-web": "~0.13.12",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "expo-image-picker": "~10.2.2",
+    "expo-location": "~12.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
