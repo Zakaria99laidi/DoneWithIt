@@ -34,18 +34,33 @@ import { ListItem } from "./app/components/lists";
 import CategoryPickerItem from "./app/components/CategoryPickerItem";
 import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
+import { NavigationContainer } from "@react-navigation/native";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import AppNavigator from "./app/navigation/AppNavigator";
+import NewListingButton from "./app/navigation/NewListingButton";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 export default function App() {
-  return <ListingEditScreen />;
+  const [auth, setAuth] = useState(false);
+  // return (
+  //   <Screen style={styles.container}>
+  //     <NewListingButton onPress={() => console.log("hhhkk")} />
+  //   </Screen>
+  // );
+  return (
+    <NavigationContainer theme={navigationTheme}>
+      {auth ? <AppNavigator /> : <AuthNavigator />}
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
-    //alignItems: "center",
-    //justifyContent: "center",
-    padding: 10,
+    backgroundColor: "yellow",
+    alignItems: "center",
+    justifyContent: "center",
+    //padding: 10,
   },
   testCard: {
     width: "100%",

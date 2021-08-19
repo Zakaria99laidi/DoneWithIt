@@ -3,22 +3,29 @@ import { View, ImageBackground, StyleSheet, Image } from "react-native";
 
 import Button from "../components/Button";
 import Text from "../components/Text";
+import routes from "../navigation/routes";
 
-const WelcomeScreen = () => (
-  <ImageBackground
-    source={require("../assets/background.jpg")}
-    style={styles.ImgBackground}
-    resizeMode="cover"
-    blurRadius={4}
-  >
-    <View style={styles.logoContainer}>
-      <Image source={require("../assets/logo-red.png")} style={styles.logo} />
-      <Text style={styles.textLine}>Sell What You Don't Need</Text>
-    </View>
-    <Button title="login" />
-    <Button title="register" color="secondary" />
-  </ImageBackground>
-);
+function WelcomeScreen({ navigation }) {
+  return (
+    <ImageBackground
+      source={require("../assets/background.jpg")}
+      style={styles.ImgBackground}
+      resizeMode="cover"
+      blurRadius={4}
+    >
+      <View style={styles.logoContainer}>
+        <Image source={require("../assets/logo-red.png")} style={styles.logo} />
+        <Text style={styles.textLine}>Sell What You Don't Need</Text>
+      </View>
+      <Button title="login" onPress={() => navigation.navigate(routes.LOGIN)} />
+      <Button
+        title="register"
+        color="secondary"
+        onPress={() => navigation.navigate(routes.REGISTER)}
+      />
+    </ImageBackground>
+  );
+}
 
 const styles = StyleSheet.create({
   ImgBackground: {

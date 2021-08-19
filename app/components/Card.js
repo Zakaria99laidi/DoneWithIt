@@ -1,29 +1,32 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 
 import colors from "../config/colors";
 import Text from "./Text";
 
 function Card({
   image = require("../assets/jacket.jpg"),
+  onPress,
   title = "Red Jacket for Sale!",
   subTitle = "100$",
   style,
   styleImg,
 }) {
   return (
-    <View style={[styles.card, style]}>
-      <Image source={image} style={[styles.Img, styleImg]} />
-      <View style={styles.infoCard}>
-        <Text style={styles.title} numberOfLines={2}>
-          {" "}
-          {title}{" "}
-        </Text>
-        <Text style={styles.subTitle} numberOfLines={1}>
-          {subTitle}
-        </Text>
+    <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
+      <View style={[styles.card, style]}>
+        <Image source={image} style={[styles.Img, styleImg]} />
+        <View style={styles.infoCard}>
+          <Text style={styles.title} numberOfLines={2}>
+            {" "}
+            {title}{" "}
+          </Text>
+          <Text style={styles.subTitle} numberOfLines={1}>
+            {subTitle}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 }
 const styles = StyleSheet.create({

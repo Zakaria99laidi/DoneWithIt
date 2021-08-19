@@ -4,6 +4,7 @@ import Card from "../components/Card";
 
 import Screen from "../components/Screen";
 import colors from "../config/colors";
+import routes from "../navigation/routes";
 
 const listings = [
   {
@@ -44,7 +45,7 @@ const listings = [
   },
 ];
 
-function ListingsScreen() {
+function ListingsScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -57,6 +58,7 @@ function ListingsScreen() {
             title={item.title}
             subTitle={item.subTitle + " $"}
             style={{ marginVertical: 7 }}
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}
       />
@@ -66,7 +68,7 @@ function ListingsScreen() {
 
 const styles = StyleSheet.create({
   screen: {
-    //backgroundColor: colors.light,
+    backgroundColor: colors.light,
     paddingHorizontal: 20,
     paddingBottom: 20,
   },

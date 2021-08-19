@@ -14,7 +14,7 @@ function ListItem({
   style,
   onPress,
   renderRightActions,
-  showChevrons = false,
+  showChevrons = true,
 }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
