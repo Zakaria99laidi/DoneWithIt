@@ -18,9 +18,9 @@ function AppNavigator() {
       initialRouteName={routes.FEEDS}
       screenOptions={{
         headerShown: false,
-        tabBarLabelStyle: {
-          fontSize: 13,
-        },
+        // tabBarLabelStyle: {
+        //   fontSize: 10,
+        // },
       }}
     >
       <Tab.Screen

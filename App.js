@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -41,15 +41,16 @@ import NewListingButton from "./app/navigation/NewListingButton";
 import navigationTheme from "./app/navigation/navigationTheme";
 
 export default function App() {
-  const [auth, setAuth] = useState(false);
   // return (
   //   <Screen style={styles.container}>
-  //     <NewListingButton onPress={() => console.log("hhhkk")} />
+  //     <NewListingButton />
   //   </Screen>
   // );
+
+  const [a, setA] = useState(true);
   return (
     <NavigationContainer theme={navigationTheme}>
-      {auth ? <AppNavigator /> : <AuthNavigator />}
+      {a ? <AppNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }

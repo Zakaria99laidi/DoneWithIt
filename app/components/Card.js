@@ -5,7 +5,7 @@ import colors from "../config/colors";
 import Text from "./Text";
 
 function Card({
-  image = require("../assets/jacket.jpg"),
+  imageUrl = require("../assets/jacket.jpg"),
   onPress,
   title = "Red Jacket for Sale!",
   subTitle = "100$",
@@ -15,7 +15,7 @@ function Card({
   return (
     <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
       <View style={[styles.card, style]}>
-        <Image source={image} style={[styles.Img, styleImg]} />
+        <Image source={{ uri: imageUrl }} style={[styles.Img, styleImg]} />
         <View style={styles.infoCard}>
           <Text style={styles.title} numberOfLines={2}>
             {" "}
