@@ -11,45 +11,6 @@ import AppButton from "../components/Button";
 import ActivityIndicator from "../components/ActivityIndicator";
 import useApi from "../hooks/useApi";
 
-const listings = [
-  {
-    id: 1,
-    image: require("../assets/camera.jpg"),
-    title: "Nice Camera",
-    subTitle: "200",
-  },
-  {
-    id: 2,
-    image: require("../assets/couch.jpg"),
-    title: "a beautiful couch!",
-    subTitle: "150",
-  },
-  {
-    id: 3,
-    image: require("../assets/jacket.jpg"),
-    title: "Red Jacket for Sale!",
-    subTitle: "100",
-  },
-  {
-    id: 4,
-    image: require("../assets/camera.jpg"),
-    title: "Nice Camera",
-    subTitle: "200",
-  },
-  {
-    id: 5,
-    image: require("../assets/couch.jpg"),
-    title: "a beautiful couch!",
-    subTitle: 150,
-  },
-  {
-    id: 6,
-    image: require("../assets/jacket.jpg"),
-    title: "Red Jacket for Sale!",
-    subTitle: 100.5,
-  },
-];
-
 function ListingsScreen({ navigation }) {
   const {
     data: listings,
@@ -101,3 +62,42 @@ const styles = StyleSheet.create({
 });
 
 export default ListingsScreen;
+
+// const listings = [
+//   {
+//     id: 1,
+//     image: require("../assets/camera.jpg"),
+//     title: "Nice Camera",
+//     subTitle: "200",
+//   },
+//   {
+//     id: 2,
+//     image: require("../assets/couch.jpg"),
+//     title: "a beautiful couch!",
+//     subTitle: "150",
+//   },
+//   {
+//     id: 3,
+//     image: require("../assets/jacket.jpg"),
+//     title: "Red Jacket for Sale!",
+//     subTitle: "100",
+//   },
+//   {
+//     id: 4,
+//     image: require("../assets/camera.jpg"),
+//     title: "Nice Camera",
+//     subTitle: "200",
+//   },
+//   {
+//     id: 5,
+//     image: require("../assets/couch.jpg"),
+//     title: "a beautiful couch!",
+//     subTitle: 150,
+//   },
+//   {
+//     id: 6,
+//     image: require("../assets/jacket.jpg"),
+//     title: "Red Jacket for Sale!",
+//     subTitle: 100.5,
+//   },
+// ];
