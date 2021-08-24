@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
+import { StyleSheet, TouchableHighlight, View } from "react-native";
+import { Image } from "react-native-expo-image-cache";
 
 import colors from "../config/colors";
 import Text from "./Text";
@@ -9,13 +10,19 @@ function Card({
   onPress,
   title = "Red Jacket for Sale!",
   subTitle = "100$",
+  thumbnailUrl,
   style,
   styleImg,
 }) {
   return (
     <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
       <View style={[styles.card, style]}>
-        <Image source={{ uri: imageUrl }} style={[styles.Img, styleImg]} />
+        <Image
+          uri={imageUrl}
+          style={[styles.Img, styleImg]}
+          preview={{ uri: thumbnailUrl }}
+          tint="light"
+        />
         <View style={styles.infoCard}>
           <Text style={styles.title} numberOfLines={2}>
             {" "}

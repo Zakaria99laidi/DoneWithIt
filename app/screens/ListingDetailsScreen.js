@@ -1,10 +1,10 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Image } from "react-native-expo-image-cache";
 
 import Text from "../components/Text";
 import { ListItem } from "../components/lists";
 import colors from "../config/colors";
-import Screen from "../components/Screen";
 
 function ListingDetailsScreen({
   // image = require("../assets/camera.jpg"),
@@ -15,10 +15,15 @@ function ListingDetailsScreen({
   const listing = route.params;
   return (
     <View style={styles.container}>
-      <Image source={listing.image} style={styles.Img} />
+      <Image
+        uri={listing.images[0].url}
+        style={styles.Img}
+        preview={{ uri: listing.images[0].thumbnailUrl }}
+        tint="light"
+      />
       <View style={styles.info}>
         <Text style={styles.title}>{listing.title}</Text>
-        <Text style={styles.subTitle}>{listing.subTitle}</Text>
+        <Text style={styles.subTitle}>{listing.price + " $"}</Text>
       </View>
       <ListItem
         image={require("../assets/zaki2.jpg")}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default useListings = (apiFunc) => {
+export default useApi = (apiFunc) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);

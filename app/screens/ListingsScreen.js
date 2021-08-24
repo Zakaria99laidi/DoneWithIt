@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet } from "react-native";
+import React, { useEffect } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
+import { useNetInfo } from "@react-native-community/netinfo";
 
 import Card from "../components/Card";
 import colors from "../config/colors";
@@ -10,6 +11,7 @@ import AppText from "../components/Text";
 import AppButton from "../components/Button";
 import ActivityIndicator from "../components/ActivityIndicator";
 import useApi from "../hooks/useApi";
+import OfflineNotice from "../components/OfflineNotice";
 
 function ListingsScreen({ navigation }) {
   const {
@@ -24,30 +26,36 @@ function ListingsScreen({ navigation }) {
   }, []);
 
   return (
-    <Screen style={styles.screen}>
-      <ActivityIndicator visible={loading} />
-      {error ? (
-        <>
-          <AppText>Couldn't retrieve the listings.</AppText>
-          <AppButton title="retry" onPress={loadListings} />
-        </>
-      ) : (
-        <FlatList
-          style={{ paddingVertical: 10 }}
-          data={listings}
-          keyExtractor={(listing) => listing.id.toString()}
-          renderItem={({ item }) => (
-            <Card
-              imageUrl={item.images[0].url}
-              title={item.title}
-              subTitle={item.price + " $"}
-              style={{ marginVertical: 7 }}
-              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-            />
-          )}
-        />
-      )}
-    </Screen>
+    <>
+      {/* <OfflineNotice /> */}
+      <Screen style={styles.screen}>
+        <ActivityIndicator visible={loading} />
+        {error ? (
+          <>
+            <AppText>Couldn't retrieve the listings.</AppText>
+            <AppButton title="retry" onPress={loadListings} />
+          </>
+        ) : (
+          <FlatList
+            style={{ paddingVertical: 10 }}
+            data={listings}
+            keyExtractor={(listing) => listing.id.toString()}
+            renderItem={({ item }) => (
+              <Card
+                imageUrl={item.images[0].url}
+                title={item.title}
+                subTitle={item.price + " $"}
+                style={{ marginVertical: 7 }}
+                onPress={() =>
+                  navigation.navigate(routes.LISTING_DETAILS, item)
+                }
+                thumbnailUrl={item.images[0].thumbnailUrl}
+              />
+            )}
+          />
+        )}
+      </Screen>
+    </>
   );
 }
 
