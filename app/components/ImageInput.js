@@ -58,13 +58,6 @@ function ImageInput({ imageUri, onChangeImage, style }) {
             style={{ width: 100, height: 100 }}
           />
         ) : (
-          // <Icon
-          //   name="camera"
-          //   size={100}
-          //   iconColor={colors.medium}
-          //   backgroundColor={colors.grey}
-          //   style={{ borderRadius: 10 }}
-          // />
           <MaterialCommunityIcons
             name="camera"
             color={colors.medium}

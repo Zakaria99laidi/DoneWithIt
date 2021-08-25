@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import AppLoading from "expo-app-loading";
 import { StyleSheet } from "react-native";
 
 import AuthNavigator from "./app/navigation/AuthNavigator";
@@ -9,22 +10,36 @@ import navigationTheme from "./app/navigation/navigationTheme";
 import Screen from "./app/components/Screen";
 import NewListingButton from "./app/navigation/NewListingButton";
 import OfflineNotice from "./app/components/OfflineNotice";
+import AuthContext from "./app/auth/context";
+import authStorage from "./app/auth/storage";
+import jwtDecode from "jwt-decode";
 
 export default function App() {
-  // return (
-  //   <Screen style={styles.container}>
-  //     <NewListingButton />
-  //   </Screen>
-  // );
+  const [user, setUser] = useState();
+  const [isReady, setIsReady] = useState(false);
 
-  const [a, setA] = useState(true);
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) setUser(user);
+  };
+
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={restoreUser}
+        onFinish={() => setIsReady(true)}
+        onError={() => console.warn}
+      />
+    );
+  }
+
   return (
-    <>
+    <AuthContext.Provider value={{ user, setUser }}>
       <NavigationContainer theme={navigationTheme}>
-        {a ? <AppNavigator /> : <AuthNavigator />}
+        {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
       <OfflineNotice />
-    </>
+    </AuthContext.Provider>
   );
 }
 

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import { useNetInfo } from "@react-native-community/netinfo";
 
 import Card from "../components/Card";
 import colors from "../config/colors";
@@ -11,7 +10,6 @@ import AppText from "../components/Text";
 import AppButton from "../components/Button";
 import ActivityIndicator from "../components/ActivityIndicator";
 import useApi from "../hooks/useApi";
-import OfflineNotice from "../components/OfflineNotice";
 
 function ListingsScreen({ navigation }) {
   const {
@@ -27,9 +25,8 @@ function ListingsScreen({ navigation }) {
 
   return (
     <>
-      {/* <OfflineNotice /> */}
+      <ActivityIndicator visible={loading} />
       <Screen style={styles.screen}>
-        <ActivityIndicator visible={loading} />
         {error ? (
           <>
             <AppText>Couldn't retrieve the listings.</AppText>

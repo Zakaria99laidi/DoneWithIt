@@ -22,7 +22,7 @@ function ImageInputList({ imageUris, onAddImage, onRemoveImage }) {
         }
         horizontal
         onContentSizeChange={() => scrollView.current.scrollToEnd()}
-        style={{ alignSelf: "flex-start" }}
+        style={styles.imagesContainer}
       />
     </View>
   );
@@ -31,6 +31,9 @@ function ImageInputList({ imageUris, onAddImage, onRemoveImage }) {
 const styles = StyleSheet.create({
   container: {
     //backgroundColor: "#eee",
+  },
+  imagesContainer: {
+    alignSelf: "flex-start",
   },
 });
 

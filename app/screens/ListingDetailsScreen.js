@@ -6,12 +6,7 @@ import Text from "../components/Text";
 import { ListItem } from "../components/lists";
 import colors from "../config/colors";
 
-function ListingDetailsScreen({
-  // image = require("../assets/camera.jpg"),
-  // title = "Nice Camera",
-  // subTitle = "100$",
-  route,
-}) {
+function ListingDetailsScreen({ route }) {
   const listing = route.params;
   return (
     <View style={styles.container}>
