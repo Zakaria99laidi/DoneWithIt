@@ -2,25 +2,22 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "../config/colors";
-
 import FeedNavigator from "./FeedNavigator";
 import ListingEditScreen from "../screens/ListingEditScreen";
 import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
 import routes from "./routes";
+import useNotification from "../hooks/useNotification";
 
 const Tab = createBottomTabNavigator();
 
 function AppNavigator() {
+  useNotification();
   return (
     <Tab.Navigator
       initialRouteName={routes.FEEDS}
       screenOptions={{
         headerShown: false,
-        // tabBarLabelStyle: {
-        //   fontSize: 10,
-        // },
       }}
     >
       <Tab.Screen
