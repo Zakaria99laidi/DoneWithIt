@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { Image, Keyboard, StyleSheet } from "react-native";
 import * as Yup from "yup";
-import authApi from "../api/auth";
-import usersApi from "../api/users";
-import useAuth from "../auth/useAuth";
-import ActivityIndicator from "../components/ActivityIndicator";
 
 import {
   AppErrorMessage,
@@ -12,8 +8,14 @@ import {
   FormField,
   SubmitButton,
 } from "../components/forms";
-import Screen from "../components/Screen";
+import ActivityIndicator from "../components/ActivityIndicator";
+import authApi from "../api/auth";
+import logger from "../utility/logger";
 import useApi from "../hooks/useApi";
+import usersApi from "../api/users";
+import useAuth from "../auth/useAuth";
+import Screen from "../components/Screen";
+import KeyboardAvoiding from "./KeyboardAvoiding";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(4).max(20).label("Name"),
@@ -28,13 +30,15 @@ function RegisterScreen() {
   const auth = useAuth();
 
   const handleSubmit = async (userInfo) => {
+    Keyboard.dismiss();
+
     const result = await registerApi.request(userInfo);
 
     if (!result.ok) {
       if (result.data) setError(result.data.error);
       else {
         setError("An unexpected error occurred.");
-        console.log(result);
+        logger.log(result);
       }
       return;
     }
@@ -51,40 +55,46 @@ function RegisterScreen() {
     <>
       <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
       <Screen style={styles.screen}>
-        <AppErrorMessage error={error} visible={error} />
-        <AppForm
-          initialValues={{ name: "", email: "", password: "" }}
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}
-        >
-          <FormField
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon="account"
-            placeholder="Name"
-            name="name"
-            textContentType="username"
+        <KeyboardAvoiding>
+          <Image
+            source={require("../assets/logo-red.png")}
+            style={styles.logo}
           />
-          <FormField
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon="email"
-            placeholder="Email"
-            keyboardType="email-address"
-            name="email"
-            textContentType="emailAddress"
-          />
-          <FormField
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon="lock"
-            placeholder="Password"
-            name="password"
-            secureTextEntry
-            textContentType="password"
-          />
-          <SubmitButton title="register" />
-        </AppForm>
+          <AppErrorMessage error={error} visible={error} />
+          <AppForm
+            initialValues={{ name: "", email: "", password: "" }}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchema}
+          >
+            <FormField
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon="account"
+              placeholder="Name"
+              name="name"
+              textContentType="username"
+            />
+            <FormField
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon="email"
+              placeholder="Email"
+              keyboardType="email-address"
+              name="email"
+              textContentType="emailAddress"
+            />
+            <FormField
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon="lock"
+              placeholder="Password"
+              name="password"
+              secureTextEntry
+              textContentType="password"
+            />
+            <SubmitButton title="register" />
+          </AppForm>
+        </KeyboardAvoiding>
       </Screen>
     </>
   );
@@ -93,8 +103,13 @@ function RegisterScreen() {
 const styles = StyleSheet.create({
   screen: {
     padding: 15,
-    paddingTop: 30,
-    alignItems: "center",
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    marginTop: 50,
+    marginBottom: 20,
+    alignSelf: "center",
   },
 });
 export default RegisterScreen;

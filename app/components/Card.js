@@ -6,10 +6,10 @@ import colors from "../config/colors";
 import Text from "./Text";
 
 function Card({
-  imageUrl = require("../assets/jacket.jpg"),
+  imageUrl,
   onPress,
-  title = "Red Jacket for Sale!",
-  subTitle = "100$",
+  title,
+  subTitle,
   thumbnailUrl,
   style,
   styleImg,
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 15,
     overflow: "hidden",
-    //width: "100%",
   },
   Img: {
     width: "100%",

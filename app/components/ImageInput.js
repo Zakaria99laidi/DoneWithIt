@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Alert,
   Image,
@@ -10,20 +10,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 
 import colors from "../config/colors";
-import Icon from "./Icon";
+import logger from "../utility/logger";
 
 function ImageInput({ imageUri, onChangeImage, style }) {
   const requestPermission = async () => {
     const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    // if (!granted) {
-    //   alert("Sorry, you need to access to the image");
-    // }
     return granted;
   };
-
-  // useEffect(() => {
-  //   requestPermission();
-  // }, []);
 
   const selectImage = async () => {
     try {
@@ -36,7 +29,7 @@ function ImageInput({ imageUri, onChangeImage, style }) {
         if (!result.cancelled) onChangeImage(result.uri);
       } else alert("Sorry, you need to access to the image");
     } catch (error) {
-      console.log("Error reading an image", error);
+      logger.log(error);
     }
   };
 

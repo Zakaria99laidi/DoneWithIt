@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ListingDetailsScreen from "../screens/ListingDetailsScreen";
 import ListingsScreen from "../screens/ListingsScreen";
 import routes from "./routes";
+import ViewImageScreen from "../screens/ViewImageScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ function FeedNavigator() {
         name={routes.LISTING_DETAILS}
         component={ListingDetailsScreen}
       />
+      <Stack.Screen name={routes.VIEW_IMAGE} component={ViewImageScreen} />
     </Stack.Navigator>
   );
 }

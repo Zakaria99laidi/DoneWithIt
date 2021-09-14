@@ -27,6 +27,22 @@
       "favicon": "./app/assets/favicon.png"
     },
     "description": "A marketplace for selling the stuff you don't need anymore.",
-    "githubUrl": "https://github.com/Zakaria99laidi/DoneWithIt"
+    "githubUrl": "https://github.com/Zakaria99laidi/DoneWithIt",
+    "notification": {
+      "iosDisplayInForeground": true
+    },
+    "extra": {
+      "bugsnag": {
+        "apiKey": "5af1846820b174bf87fb864a7dcc3f28"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
+    }
   }
 }

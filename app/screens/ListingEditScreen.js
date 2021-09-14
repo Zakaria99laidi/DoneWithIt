@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { Keyboard, StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import {
@@ -13,8 +13,8 @@ import CategoryPickerItem from "../components/CategoryPickerItem";
 import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
 import listingsApi from "../api/listings";
-import AppText from "../components/Text";
 import UploadScreen from "./UploadScreen";
+import KeyboardAvoiding from "./KeyboardAvoiding";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -77,6 +77,8 @@ function ListingEditScreen() {
   const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing, { resetForm }) => {
+    Keyboard.dismiss();
+
     setVisibleUpload(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
@@ -110,13 +112,19 @@ function ListingEditScreen() {
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
-        <FormField maxLength={255} placeholder="Title" name="title" />
+        <FormField
+          maxLength={255}
+          placeholder="Title"
+          name="title"
+          icon="pencil"
+        />
         <FormField
           maxLength={8}
           placeholder="Price"
           name="price"
           keyboardType="numeric"
-          width="32%"
+          icon="currency-usd"
+          width="40%"
         />
         <FormPicker
           items={items}
@@ -124,7 +132,8 @@ function ListingEditScreen() {
           numColumns={3}
           PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
-          width="50%"
+          icon="apps"
+          width="60%"
         />
         <FormField
           maxLength={255}

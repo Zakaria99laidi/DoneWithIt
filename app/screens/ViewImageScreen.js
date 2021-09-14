@@ -1,27 +1,14 @@
 import React from "react";
-import { StyleSheet, View, StatusBar, Image } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { StyleSheet, View, Image } from "react-native";
 
 import colors from "../config/colors";
 
-function ViewImageScreen() {
+function ViewImageScreen({ route }) {
+  const listing = route.params;
   return (
     <View style={styles.container}>
-      <StatusBar />
-      <View style={styles.iconContainer}>
-        <View style={styles.closeIcon}>
-          <MaterialCommunityIcons name="close" size={40} color={colors.white} />
-        </View>
-        <View style={styles.deleteIcon}>
-          <MaterialCommunityIcons
-            name="trash-can-outline"
-            size={40}
-            color={colors.white}
-          />
-        </View>
-      </View>
       <Image
-        source={require("../assets/chair.jpg")}
+        source={{ uri: listing.images[0].url }}
         resizeMode="contain"
         style={styles.Img}
       />
@@ -33,29 +20,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.black,
-  },
-  iconContainer: {
-    width: "100%",
-    height: "5%",
-    marginBottom: 5,
-  },
-  closeIcon: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: 50,
-    height: 50,
-    top: "20%",
-    left: "5%",
-    position: "absolute",
-  },
-  deleteIcon: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: 50,
-    height: 50,
-    top: "20%",
-    right: "5%",
-    position: "absolute",
   },
   Img: {
     width: "100%",

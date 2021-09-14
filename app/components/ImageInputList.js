@@ -6,7 +6,7 @@ import ImageInput from "./ImageInput";
 function ImageInputList({ imageUris, onAddImage, onRemoveImage }) {
   const scrollView = useRef();
   return (
-    <View style={styles.container}>
+    <View>
       <FlatList
         ref={scrollView}
         data={imageUris}
@@ -29,9 +29,6 @@ function ImageInputList({ imageUris, onAddImage, onRemoveImage }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    //backgroundColor: "#eee",
-  },
   imagesContainer: {
     alignSelf: "flex-start",
   },

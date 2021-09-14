@@ -1,20 +1,18 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
 import { StyleSheet } from "react-native";
 
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AppNavigator from "./app/navigation/AppNavigator";
-import colors from "./app/config/colors";
 import { NavigationContainer } from "@react-navigation/native";
 import navigationTheme from "./app/navigation/navigationTheme";
-import Screen from "./app/components/Screen";
-import NewListingButton from "./app/navigation/NewListingButton";
 import OfflineNotice from "./app/components/OfflineNotice";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
-import jwtDecode from "jwt-decode";
 import { navigationRef } from "./app/navigation/rootNavigation";
-import AppButton from "./app/components/Button";
+import logger from "./app/utility/logger";
+
+//logger.start();
 
 export default function App() {
   const [user, setUser] = useState();
@@ -30,7 +28,7 @@ export default function App() {
       <AppLoading
         startAsync={restoreUser}
         onFinish={() => setIsReady(true)}
-        onError={() => console.warn}
+        onError={() => null}
       />
     );
   }

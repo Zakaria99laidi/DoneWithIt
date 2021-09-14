@@ -35,7 +35,7 @@ function AccountScreen({ navigation }) {
     <Screen style={styles.screen}>
       <ListItem
         style={styles.container}
-        image={require("../assets/zaki2.jpg")}
+        image={require("../assets/zaki.jpg")}
         title={user.name}
         description={user.email}
       />
@@ -79,50 +79,3 @@ const styles = StyleSheet.create({
   },
 });
 export default AccountScreen;
-
-//
-{
-  /* <FlatList
-  style={{ flex: 1, paddingTop: 20 }}
-  data={data.slice(0, -1)}
-  keyExtractor={(item) => item.id.toString()}
-  renderItem={({ item }) => (
-    <ListItem
-      title={item.title}
-      iconComponent={
-        <Icon
-          name={item.icon.name}
-          backgroundColor={item.icon.backgroundColor}
-          //style={{ marginHorizontal: 7 }}
-        />
-      }
-      //style={{ marginVertical: 2 }}
-    />
-  )}
-  ItemSeparatorComponent={ListItemSeparator}
-  ListFooterComponent={() => {
-    const last = data[data.length - 1];
-    return (
-      <ListItem
-        title={last.title}
-        iconComponent={
-          <Icon
-            name={last.icon.name}
-            backgroundColor={last.icon.backgroundColor}
-            //style={{ marginHorizontal: 7 }}
-          />
-        }
-        style={{ marginTop: 40 }}
-      />
-    );
-  }}
-  ListHeaderComponent={() => (
-    <ListItem
-      image={require("../assets/mosh.jpg")}
-      title="Laidi Zakaria"
-      description="gz_laidi@esi.dz"
-      style={{ marginVertical: 10, marginBottom: 40 }}
-    />
-  )}
-/> */
-}

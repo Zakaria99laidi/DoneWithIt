@@ -9,4 +9,5 @@ export default Object.freeze({
   MY_ACCOUNT: "My Account",
   REGISTER: "Register",
   WELCOME: "Welcome",
+  VIEW_IMAGE: "ViewImage",
 });

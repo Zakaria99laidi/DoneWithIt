@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
     paddingVertical: 15,
-    //alignItems: "center",
   },
   label: {
     //marginTop: 5,

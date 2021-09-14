@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import * as Notifications from "expo-notifications";
 
 import expoPushTokensApi from "../api/expoPushTokens";
+import logger from "../utility/logger";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -18,11 +19,9 @@ export default useNotification = () => {
   useEffect(() => {
     requestForPushNotifications();
 
-    // This listener is fired whenever a notification is received while the app is foregrounded
     notificationListener.current =
       Notifications.addNotificationReceivedListener();
 
-    // This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
     responseListener.current =
       Notifications.addNotificationResponseReceivedListener();
 
@@ -42,7 +41,7 @@ export default useNotification = () => {
       const token = (await Notifications.getExpoPushTokenAsync()).data;
       expoPushTokensApi.register(token);
     } catch (error) {
-      console.log(error);
+      logger.log(error);
     }
   };
 };
