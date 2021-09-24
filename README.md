@@ -44,7 +44,7 @@
   </table>
 </center>
 
-## What I learned ?
+## What I learned
 
 - Implement interface user with [ReactNative](https://reactnative.dev/) and Javascript.
 - Learn basic of React Native.
@@ -65,7 +65,7 @@
 - Publishing the App via Expo.
 - Refactoring the code with Best Practices.
 
-## How To Use ?
+## How To Use
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
